@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROTECT B • Links</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Identidade TITANTEC (blindagens) */
+      --bg0:#070A10;
+      --bg1:#0B1020;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.12);
+      --text:#F3F6FF;
+      --muted:rgba(243,246,255,.72);
+      --red:#FF2E2E;
+      --red2:#C00000;
+      --glow: rgba(255,46,46,.28);
+    }
+
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(255,46,46,.18), transparent 55%),
+        radial-gradient(700px 400px at 85% 20%, rgba(255,46,46,.10), transparent 60%),
+        linear-gradient(140deg, var(--bg0), var(--bg1));
+      padding: 24px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width: 440px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      box-shadow:
+        0 18px 40px rgba(0,0,0,.35),
+        0 0 0 1px rgba(255,46,46,.10) inset;
+      overflow:hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .top{
+      padding: 22px 22px 14px 22px;
+      position:relative;
+    }
+
+    .top::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(600px 120px at 50% 0%, rgba(255,46,46,.20), transparent 70%),
+        linear-gradient(90deg, transparent, rgba(255,46,46,.10), transparent);
+      pointer-events:none;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .logo{
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,.25);
+    }
+
+    .logo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand h1{
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+
+    .brand p{
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.25;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,46,46,.22);
+      background: rgba(255,46,46,.10);
+      color: rgba(243,246,255,.88);
+      font-size: 12px;
+      position:relative;
+      z-index:1;
+      width: fit-content;
+    }
+
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+    }
+
+    .content{
+      padding: 18px 18px 12px 18px;
+    }
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      text-decoration:none;
+      color: var(--text);
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,46,46,.30);
+      box-shadow: 0 14px 26px rgba(0,0,0,.32), 0 0 0 4px rgba(255,46,46,.08);
+    }
+
+    .left{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .icon{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(255,46,46,.12);
+      border: 1px solid rgba(255,46,46,.22);
+      box-shadow: 0 0 24px var(--glow);
+      flex: 0 0 auto;
+      font-size: 18px;
+    }
+
+    .text{
+      display:flex;
+      flex-direction:column;
+      min-width: 0;
+    }
+
+    .text strong{
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .text span{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .arrow{
+      opacity: .65;
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+
+    .cta{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .mini{
+      flex: 1 1 170px;
+      text-align:center;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,46,46,.22), rgba(192,0,0,.18));
+      border: 1px solid rgba(255,46,46,.30);
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 700;
+      box-shadow: 0 16px 28px rgba(0,0,0,.30);
+      transition: transform .18s ease, filter .18s ease;
+    }
+
+    .mini:hover{ transform: translateY(-2px); filter: brightness(1.05); }
+
+    .footer{
+      padding: 12px 18px 18px 18px;
+      color: rgba(243,246,255,.55);
+      font-size: 11.5px;
+      text-align:center;
+    }
+
+    /* Acessibilidade */
+    .btn:focus, .mini:focus{
+      outline: 3px solid rgba(255,46,46,.35);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 380px){
+      .brand h1{ font-size: 16px; }
+      .logo{ width:54px; height:54px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div class="brand">
+          <!-- Troque a imagem abaixo pelo seu LOGO (ex: ./logo.png) -->
+          <div class="logo">
+            <img src="https://via.placeholder.com/200x200.png?text=TITANTEC" alt="Logo TITANTEC" />
+          </div>
+          <div>
+            <h1>PROTECT Blindagens</h1>
+            <p>Blindagem e proteção para o seu celular • Atendimento rápido via WhatsApp</p>
+            <div class="badge">⚡ Orçamento sem enrolação</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="content">
+        <div class="links">
+          <a class="btn" href="https://wa.me/5511910832360?text=Oi!%20Vim%20pelo%20Instagram%20e%20quero%20um%20or%C3%A7amento%20de%20blindagem%20para%20meu%20celular." target="_blank" rel="noopener noreferrer">
+            <div class="left">
+              <div class="icon">💬</div>
+              <div class="text">
+                <strong>WhatsApp • Atendimento</strong>
+                <span>11 91083-2360</span>
+              </div>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="btn" href="mailto:contatocomercialtitantec@gmail.com" target="_blank" rel="noopener noreferrer">
+            <div class="left">
+              <div class="icon">✉️</div>
+              <div class="text">
+                <strong>E-mail • Comercial</strong>
+                <span>contatocomercialprotect@gmail.com</span>
+              </div>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="btn" href="https://www.instagram.com/titantec_blindagens/" target="_blank" rel="noopener noreferrer">
+            <div class="left">
+              <div class="icon">📷</div>
+              <div class="text">
+                <strong>Instagram</strong>
+                <span>@protect_blindagens</span>
+              </div>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <!-- (Opcional) Cole aqui o link do seu catálogo/portfólio/WhatsApp catálogo, Google Drive, etc. -->
+          <a class="btn" href="#" onclick="alert('Cole aqui o link do catálogo/portfólio (Google Drive, Site, etc.)'); return false;">
+            <div class="left">
+              <div class="icon">📌</div>
+              <div class="text">
+                <strong>Catálogo / Portfólio</strong>
+                <span>Antes e depois • modelos • valores</span>
+              </div>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+        </div>
+
+        <div class="cta">
+          <a class="mini" href="https://wa.me/5511910832360?text=Quero%20fechar%20uma%20blindagem%20hoje.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">Fechar agora</a>
+          <a class="mini" href="https://wa.me/5511910832360?text=Quais%20s%C3%A3o%20os%20modelos%20e%20valores%3F" target="_blank" rel="noopener noreferrer">Ver valores</a>
+        </div>
+      </div>
+
+      <div class="footer">
+        © 2026 • PROTECT • Feito para conversão no Instagram
+      </div>
+    </div>
+  </div>
+</body>
+</html>
