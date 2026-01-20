@@ -24,23 +24,36 @@
 
     *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
 
-    html{
-      height: -webkit-fill-available;
-      /* Fundo também no html para evitar faixa preta no topo (iOS/WhatsApp WebView) */
+    html, body{
+      height:100%;
+      width:100%;
+      margin:0;
+      background: var(--bg0);
+    }
+
+    /* Fundo FIXO para cobrir TODO o viewport no iOS/WhatsApp WebView (evita faixa preta) */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
       background:
         radial-gradient(900px 500px at 15% 10%, rgba(255,46,46,.18), transparent 55%),
         radial-gradient(700px 400px at 85% 20%, rgba(255,46,46,.10), transparent 60%),
         linear-gradient(140deg, var(--bg0), var(--bg1));
+      transform: translateZ(0);
     }
 
     body{
-      min-height: -webkit-fill-available; /* solução definitiva iOS */
-      height: -webkit-fill-available;
+      min-height: 100vh;
+      min-height: 100svh;
+      min-height: 100dvh;
+      min-height: -webkit-fill-available;
+      height: 100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       color:var(--text);
-      background: transparent; /* o html já pinta o fundo completo (inclui topo) */
       padding:
         env(safe-area-inset-top)
         env(safe-area-inset-right)
