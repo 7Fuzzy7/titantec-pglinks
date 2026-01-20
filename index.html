@@ -77,21 +77,33 @@
       pointer-events:none;
     }
 
-    .brand{ display:flex; align-items:center; gap:12px; position:relative; z-index:1; }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 10px;
+      position:relative;
+      z-index:1;
+      text-align:center;
+    }
 
     .logo{
-      width:58px; height:58px; border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
-      display:flex; align-items:center; justify-content:center;
-      overflow:hidden; box-shadow:0 10px 22px rgba(0,0,0,.25);
-      flex:0 0 auto;
+      width: 86px;
+      height: 86px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,.25);
+      flex: 0 0 auto;
     }
 
     .logo img{ width:100%; height:100%; object-fit:cover; }
 
-    .brand h1{ font-size:18px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; }
-    .brand p{ font-size:12.5px; color:var(--muted); margin-top:2px; line-height:1.25; }
+        .brand p{ font-size:12.5px; color:var(--muted); margin-top:2px; line-height:1.25; }
 
     .badge{
       display:inline-flex; align-items:center; gap:8px; margin-top:12px;
@@ -162,11 +174,9 @@
       <div class="top">
         <div class="brand">
           <div class="logo"><img src="logo.png" alt="Logo PROTECT" /></div>
-          <div>
-            <h1>PROTECT Blindagens</h1>
-            <p>Blindagem e proteção para o seu celular • Atendimento rápido via WhatsApp</p>
-            <div class="badge">⚡ Orçamento sem enrolação</div>
-          </div>
+          <p>Blindagem e proteção para o seu celular • Atendimento rápido via WhatsApp</p>
+          <div class="badge">⚡ Orçamento sem enrolação</div>
+        </div>
         </div>
       </div>
 
