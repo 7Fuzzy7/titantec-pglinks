@@ -26,7 +26,11 @@
 
     html{
       height: -webkit-fill-available;
-      background: var(--bg0);
+      /* Fundo também no html para evitar faixa preta no topo (iOS/WhatsApp WebView) */
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(255,46,46,.18), transparent 55%),
+        radial-gradient(700px 400px at 85% 20%, rgba(255,46,46,.10), transparent 60%),
+        linear-gradient(140deg, var(--bg0), var(--bg1));
     }
 
     body{
@@ -36,10 +40,7 @@
       align-items:center;
       justify-content:center;
       color:var(--text);
-      background:
-        radial-gradient(900px 500px at 15% 10%, rgba(255,46,46,.18), transparent 55%),
-        radial-gradient(700px 400px at 85% 20%, rgba(255,46,46,.10), transparent 60%),
-        linear-gradient(140deg, var(--bg0), var(--bg1));
+      background: transparent; /* o html já pinta o fundo completo (inclui topo) */
       padding:
         env(safe-area-inset-top)
         env(safe-area-inset-right)
