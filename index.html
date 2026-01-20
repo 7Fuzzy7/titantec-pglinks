@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>PROTECT B • Links</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,6 @@
 
   <style>
     :root{
-      /* Identidade TITANTEC (blindagens) */
       --bg0:#070A10;
       --bg1:#0B1020;
       --card:rgba(255,255,255,.06);
@@ -25,8 +24,15 @@
 
     *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
 
+    html, body{
+      height: 100%;
+      width: 100%;
+      background: var(--bg0);
+    }
+
     body{
-      min-height:100vh;
+      min-height: 100svh;   /* iOS viewport correto */
+      height: 100svh;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -35,12 +41,20 @@
         radial-gradient(900px 500px at 15% 10%, rgba(255,46,46,.18), transparent 55%),
         radial-gradient(700px 400px at 85% 20%, rgba(255,46,46,.10), transparent 60%),
         linear-gradient(140deg, var(--bg0), var(--bg1));
-      padding: 24px;
+
+      /* Safe area (iPhone) + sem “sobras” brancas */
+      padding: env(safe-area-inset-top)
+               env(safe-area-inset-right)
+               env(safe-area-inset-bottom)
+               env(safe-area-inset-left);
+
+      overflow: hidden; /* evita scroll fantasma que revela branco */
     }
 
     .wrap{
       width:100%;
       max-width: 440px;
+      padding: 24px; /* espaçamento interno real */
     }
 
     .card{
@@ -88,6 +102,7 @@
       justify-content:center;
       overflow:hidden;
       box-shadow: 0 10px 22px rgba(0,0,0,.25);
+      flex: 0 0 auto;
     }
 
     .logo img{
@@ -243,7 +258,6 @@
       text-align:center;
     }
 
-    /* Acessibilidade */
     .btn:focus, .mini:focus{
       outline: 3px solid rgba(255,46,46,.35);
       outline-offset: 2px;
@@ -252,15 +266,16 @@
     @media (max-width: 380px){
       .brand h1{ font-size: 16px; }
       .logo{ width:54px; height:54px; }
+      .wrap{ padding: 18px; }
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="card">
       <div class="top">
         <div class="brand">
-          <!-- Troque a imagem abaixo pelo seu LOGO (ex: ./logo.png) -->
           <div class="logo">
             <img src="logo.png" alt="Logo PROTECT" />
           </div>
@@ -303,13 +318,12 @@
               <div class="icon">📷</div>
               <div class="text">
                 <strong>Instagram</strong>
-                <span>@protect_blindagens</span>
+                <span>@protect__blindagens</span>
               </div>
             </div>
             <div class="arrow">›</div>
           </a>
 
-          <!-- (Opcional) Cole aqui o link do seu catálogo/portfólio/WhatsApp catálogo, Google Drive, etc. -->
           <a class="btn" href="#" onclick="alert('Cole aqui o link do catálogo/portfólio (Google Drive, Site, etc.)'); return false;">
             <div class="left">
               <div class="icon">📌</div>
