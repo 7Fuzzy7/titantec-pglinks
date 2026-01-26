@@ -13,7 +13,6 @@
     :root{
       --bg0:#070A10;
       --bg1:#0B1020;
-      --card:rgba(255,255,255,.06);
       --stroke:rgba(255,255,255,.12);
       --text:#F3F6FF;
       --muted:rgba(243,246,255,.72);
@@ -27,11 +26,9 @@
     html, body{
       height:100%;
       width:100%;
-      margin:0;
       background: var(--bg0);
     }
 
-    /* Fundo FIXO para cobrir TODO o viewport no iOS/WhatsApp WebView (evita faixa preta) */
     body::before{
       content:"";
       position:fixed;
@@ -41,178 +38,178 @@
         radial-gradient(900px 500px at 15% 10%, rgba(255,46,46,.18), transparent 55%),
         radial-gradient(700px 400px at 85% 20%, rgba(255,46,46,.10), transparent 60%),
         linear-gradient(140deg, var(--bg0), var(--bg1));
-      transform: translateZ(0);
     }
 
     body{
-      min-height: 100vh;
-      min-height: 100svh;
-      min-height: 100dvh;
-      min-height: -webkit-fill-available;
-      height: 100vh;
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       color:var(--text);
-      padding:
-        env(safe-area-inset-top)
-        env(safe-area-inset-right)
-        env(safe-area-inset-bottom)
-        env(safe-area-inset-left);
-      overflow:hidden;
+      padding:20px;
     }
 
-    .wrap{
-    width:100%;
-    max-width:440px;
-    padding: 24px;
-    padding-top: 48px; /* 👈 empurra o conteúdo pra baixo */
-    }
+    .wrap{ width:100%; max-width:440px; }
 
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border: 1px solid var(--stroke);
-      border-radius: 22px;
-      box-shadow:
-        0 18px 40px rgba(0,0,0,.35),
-        0 0 0 1px rgba(255,46,46,.10) inset;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--stroke);
+      border-radius:22px;
       overflow:hidden;
-      backdrop-filter: blur(10px);
+      backdrop-filter:blur(10px);
+      box-shadow:0 18px 40px rgba(0,0,0,.35);
     }
 
-    .top{ padding:22px 22px 14px; position:relative; }
-
-    .top::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(600px 120px at 50% 0%, rgba(255,46,46,.20), transparent 70%),
-        linear-gradient(90deg, transparent, rgba(255,46,46,.10), transparent);
-      pointer-events:none;
-    }
-
-    .brand{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap: 10px;
-      position:relative;
-      z-index:1;
-      text-align:center;
-    }
+    .top{ padding:22px; text-align:center; }
 
     .logo{
-      width: 86px;
-      height: 86px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      width:86px;
+      height:86px;
+      border-radius:22px;
+      margin:0 auto 10px;
       overflow:hidden;
-      box-shadow: 0 10px 22px rgba(0,0,0,.25);
-      flex: 0 0 auto;
+      border:1px solid rgba(255,255,255,.14);
     }
 
     .logo img{ width:100%; height:100%; object-fit:cover; }
 
-        .brand p{ font-size:12.5px; color:var(--muted); margin-top:2px; line-height:1.25; }
-
     .badge{
-      display:inline-flex; align-items:center; gap:8px; margin-top:12px;
-      padding:8px 12px; border-radius:999px;
-      border:1px solid rgba(255,46,46,.22);
-      background:rgba(255,46,46,.10);
-      color:rgba(243,246,255,.88); font-size:12px;
-      width:fit-content; position:relative; z-index:1;
+      display:inline-block;
+      margin-top:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,46,46,.15);
+      border:1px solid rgba(255,46,46,.30);
+      font-size:12px;
     }
 
-    .divider{ height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent); }
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+    }
 
-    .content{ padding:18px 18px 12px; }
+    .content{ padding:18px; }
+
     .links{ display:flex; flex-direction:column; gap:12px; }
 
     .btn{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:14px; border-radius:16px; text-decoration:none; color:var(--text);
-      background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
-      transition:.18s ease;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px;
+      border-radius:16px;
+      text-decoration:none;
+      color:var(--text);
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      transition:.2s;
     }
 
     .btn:hover{
       transform:translateY(-2px);
-      background:rgba(255,255,255,.10);
-      border-color:rgba(255,46,46,.30);
-      box-shadow:0 14px 26px rgba(0,0,0,.32), 0 0 0 4px rgba(255,46,46,.08);
+      border-color:rgba(255,46,46,.40);
     }
 
-    .left{ display:flex; align-items:center; gap:12px; min-width:0; }
+    .left{ display:flex; align-items:center; gap:12px; }
 
     .icon{
-      width:38px; height:38px; border-radius:12px;
-      display:flex; align-items:center; justify-content:center;
-      background:rgba(255,46,46,.12); border:1px solid rgba(255,46,46,.22);
-      box-shadow:0 0 24px var(--glow); font-size:18px; flex:0 0 auto;
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,46,46,.15);
+      font-size:18px;
     }
 
-    .text{ display:flex; flex-direction:column; min-width:0; }
-    .text strong{ font-size:14px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .text span{ font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .text strong{ font-size:14px; }
+    .text span{ font-size:12px; color:var(--muted); }
 
-    .arrow{ opacity:.65; font-size:18px; }
+    .arrow{ opacity:.6; }
 
-    .cta{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
-
-    .mini{
-      flex:1 1 170px; text-align:center; padding:12px; border-radius:14px;
-      background:linear-gradient(180deg, rgba(255,46,46,.22), rgba(192,0,0,.18));
-      border:1px solid rgba(255,46,46,.30); color:var(--text); text-decoration:none; font-weight:700;
-      box-shadow:0 16px 28px rgba(0,0,0,.30);
-    }
-
-    .mini:hover{ transform:translateY(-2px); filter:brightness(1.05); }
-
-    .footer{ padding:12px 18px 18px; color:rgba(243,246,255,.55); font-size:11.5px; text-align:center; }
-
-    @media (max-width:380px){
-      .brand h1{ font-size:16px; }
-      .logo{ width:54px; height:54px; }
-      .wrap{ padding:18px; }
+    .footer{
+      text-align:center;
+      padding:14px;
+      font-size:11px;
+      color:rgba(243,246,255,.55);
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="card">
       <div class="top">
-        <div class="brand">
-          <div class="logo"><img src="logo.png" alt="Logo PROTECT" /></div>
-          <p>Blindagem e proteção para o seu celular • Atendimento rápido via WhatsApp</p>
-          <div class="badge">⚡ Orçamento sem enrolação</div>
+        <div class="logo">
+          <img src="logo.png" alt="Logo PROTECT">
         </div>
-        </div>
+        <p>Blindagem e proteção para o seu celular • Atendimento rápido via WhatsApp</p>
+        <div class="badge">⚡ Orçamento sem enrolação</div>
       </div>
 
       <div class="divider"></div>
 
       <div class="content">
         <div class="links">
-          <a class="btn" href="https://wa.me/5511910832360?text=Oi!%20Vim%20pelo%20Instagram%20e%20quero%20um%20or%C3%A7amento%20de%20blindagem%20para%20meu%20celular." target="_blank">
-            <div class="left"><div class="icon">💬</div><div class="text"><strong>WhatsApp • Atendimento</strong><span>11 91083-2360</span></div></div><div class="arrow">›</div>
+
+          <a class="btn" id="whatsappBtn" target="_blank">
+            <div class="left">
+              <div class="icon">💬</div>
+              <div class="text">
+                <strong>WhatsApp • Atendimento</strong>
+                <span>11 91083-2360</span>
+              </div>
+            </div>
+            <div class="arrow">›</div>
           </a>
-          <a class="btn" href="mailto:contatocomercialprotectb@gmail.com"><div class="left"><div class="icon">✉️</div><div class="text"><strong>E-mail • Comercial</strong><span>contatocomercialprotectb@gmail.com</span></div></div><div class="arrow">›</div></a>
-          <a class="btn" href="https://www.instagram.com/protect__blindagens/" target="_blank"><div class="left"><div class="icon">📷</div><div class="text"><strong>Instagram</strong><span>@protect__blindagens</span></div></div><div class="arrow">›</div></a>
-          <a class="btn" href="#" onclick="alert('Cole aqui o link do catálogo/portfólio');return false;"><div class="left"><div class="icon">📌</div><div class="text"><strong>Catálogo / Portfólio</strong><span>Antes e depois • modelos • valores</span></div></div><div class="arrow">›</div></a>
-        </div>
-        <div class="cta">
-          <a class="mini" href="https://wa.me/5511910832360?text=Quero%20fechar%20uma%20blindagem%20hoje." target="_blank">Fechar agora</a>
-          <a class="mini" href="https://wa.me/5511910832360?text=Quais%20s%C3%A3o%20os%20modelos%20e%20valores%3F" target="_blank">Ver valores</a>
+
+          <a class="btn" href="mailto:contatocomercialprotectb@gmail.com">
+            <div class="left">
+              <div class="icon">✉️</div>
+              <div class="text">
+                <strong>E-mail • Comercial</strong>
+                <span>contatocomercialprotectb@gmail.com</span>
+              </div>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="btn" href="https://www.instagram.com/protect__blindagens/" target="_blank">
+            <div class="left">
+              <div class="icon">📷</div>
+              <div class="text">
+                <strong>Instagram</strong>
+                <span>@protect__blindagens</span>
+              </div>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
         </div>
       </div>
+
       <div class="footer">© 2026 • PROTECT • Feito para conversão no Instagram</div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const numero = "5511910832360";
+
+      const mensagem = `Olá! Seja bem-vindo(a) à Protect Blindagens.
+A blindagem ideal preserva seu celular contra impactos sem alterar o design 📱🔒
+
+Para te explicar a proteção correta pro seu aparelho, me diga por favor:
+👉 Qual é o modelo do seu celular?`;
+
+      const link = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+
+      document.getElementById("whatsappBtn").href = link;
+
+    });
+  </script>
+
 </body>
 </html>
